@@ -12,3 +12,4 @@ public class Reto1 {
                 LeetLanguage.translateText(inputText));
     }
 }
+
