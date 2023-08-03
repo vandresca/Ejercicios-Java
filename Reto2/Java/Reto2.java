@@ -22,68 +22,8 @@ import java.util.Random;
  */
 public class Reto2 {
 
-    private static Player player1;
-
-    private static Player player2;
-
     public static void main(String[] args) {
-        init();
-        while(!hasEnd()){
-            setWinner();
-            showScoreBoard();
-            playGame(getWinner());
-        }
-    }
-
-    private static Boolean hasEnd(){
-        return player1.isWinner() || player2.isWinner();
-    }
-
-    private static void setWinner(){
-        if(player1.isMoreThanFORTY() && differenceOfWin(player1, player2)) player1.setWinner();
-        if(player2.isMoreThanFORTY() && differenceOfWin(player2, player1)) player2.setWinner();
-    }
-
-    private static Boolean differenceOfWin(Player player1, Player player2){
-        return (player1.getNumberPoints() - player2.getNumberPoints())>1;
-    }
-
-    private static void init(){
-        player1 = new Player();
-        player2 = new Player();
-    }
-
-    private static Player getWinner(){
-        Random rd = new Random();
-        return (rd.nextBoolean())? player1 : player2;
-    }
-
-    private static void playGame(Player winner){
-        winner.addPoint();
-    }
-
-    private static void showScoreBoard(){
-        if(isDeuce()) print("DEUCE");
-        else if(isAdvantagePlayer1()) print("ADVANTAGE PLAYER 1");
-        else if(isAdvantagePlayer2()) print("ADVANTAGE PLAYER 2");
-        else if(player1.isWinner()) print("WIN PLAYER 1");
-        else if(player2.isWinner()) print("WIN PLAYER 2");
-        else System.out.println(player1.getTypePoint() + " - " + player2.getTypePoint());
-    }
-
-    private static Boolean isDeuce(){
-        return player1.getNumberPoints()>= Player.TypePoint.FORTY.ordinal() && player1.getNumberPoints()== player2.getNumberPoints();
-    }
-
-    private static Boolean isAdvantagePlayer1(){
-        return (player1.getNumberPoints()> Player.TypePoint.FORTY.ordinal()) && (player1.getNumberPoints() - player2.getNumberPoints()==1);
-    }
-
-    private static Boolean isAdvantagePlayer2(){
-        return (player2.getNumberPoints()> Player.TypePoint.FORTY.ordinal()) && (player2.getNumberPoints() - player1.getNumberPoints()==1);
-    }
-
-    private static void print(String text){
-        System.out.println(text);
+       TennisGame tennisGame = new TennisGame();
+       tennisGame.play();
     }
 }

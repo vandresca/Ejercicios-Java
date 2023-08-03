@@ -1,7 +1,6 @@
 public class Player {
     private int points;
 
-    private Boolean passFORTY;
     private Boolean winner;
 
     public enum TypePoint {
@@ -10,7 +9,6 @@ public class Player {
 
     public Player() {
         this.points = 0;
-        this.passFORTY = false;
         this.winner = false;
     }
 
