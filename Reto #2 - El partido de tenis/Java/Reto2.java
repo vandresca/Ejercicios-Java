@@ -1,5 +1,3 @@
-import java.util.Random;
-
 /**
  * Escribe un programa que muestre un juego de tenis y quien
  * lo ha ganado.
@@ -20,7 +18,7 @@ import java.util.Random;
  * - Es posible controlar errores en la entrada de datos.
  * - Consulta las reglas de juego si tienes dudas sobre el sistema de puntos.
  */
-public class Reto2 {
+public class Reto2{
 
     public static void main(String[] args) {
        TennisGame tennisGame = new TennisGame();
