@@ -1,6 +1,3 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 /*
  * Escribe un programa que, dado un número, compruebe y muestre si es primo,
  * fibonacci y par.
