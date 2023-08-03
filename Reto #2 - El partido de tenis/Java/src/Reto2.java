@@ -1,3 +1,4 @@
+package src;
 /**
  * Escribe un programa que muestre un juego de tenis y quien
  * lo ha ganado.

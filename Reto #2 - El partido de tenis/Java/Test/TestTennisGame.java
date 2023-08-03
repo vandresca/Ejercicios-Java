@@ -3,6 +3,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import src.Player;
+import src.TennisGame;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
