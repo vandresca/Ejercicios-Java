@@ -1,3 +1,4 @@
+package src;
 /**
  * Programa que genere una contraseña en la que se pueda:
  * - Elegir si tiene 8 o 16 carácteres

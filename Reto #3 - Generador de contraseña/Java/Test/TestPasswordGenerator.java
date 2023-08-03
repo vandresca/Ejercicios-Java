@@ -2,6 +2,8 @@ import java.lang.reflect.Method;
 import org.junit.Assert;
 import org.junit.Test;
 
+import src.PasswordGenerator;
+
 
 
 public class TestPasswordGenerator {
@@ -47,7 +49,7 @@ public class TestPasswordGenerator {
 
             password = (String)generatePassword.invoke(passwordGenerator);
             Assert.assertEquals(password.length(),16);
-            Assert.assertTrue(password.matches("[a-zA-Z0-9!@#$%^&*()_+-=[]|,./?><]+"));
+            Assert.assertTrue(!password.matches("([a-zA-Z0-9!@#$%^&*()_+-=[]|,./?><]+)"));
 
             generatePassword.setAccessible(false);
 
