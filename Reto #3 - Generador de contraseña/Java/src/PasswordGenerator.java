@@ -1,3 +1,4 @@
+package src;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +10,7 @@ public class PasswordGenerator {
     private static final String NUMBERS = "0123456789";
     private static final String SYMBOLS = "!@#$%^&*()_+-=[]|,./?><";
 
-    class Params{
+    public class Params{
         public static Boolean hasLength16;
         public static Boolean hasUpperCase;
         public static Boolean hasNumbers;
