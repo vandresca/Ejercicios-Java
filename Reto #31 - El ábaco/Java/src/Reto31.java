@@ -1,9 +1,5 @@
-package Reto31;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Arrays;
-import java.util.Locale;
 
 /*
  * Crea una función que sea capaz de leer el número representado por el ábaco.
@@ -33,32 +29,16 @@ public class Reto31 {
             "---OOOOOOOOO",
             "OO---OOOOOOO",
             "OOOOOOO---OO",
-            "OOOOOOOO0---",
+            "OOOOOOOOO---",
             "---OOOOOOOOO"
     };
 
     public static void main(String[] args) {
-        print("Este es el ábaco: ");
-        Arrays.stream(abacus).forEach(line -> print("\t" + line));
-        print("\nResultado: " + formatNumber(extractNumberFromAbacus(abacus)));
-    }
-
-    public static String extractNumberFromAbacus(String[] abacus){
-        StringBuilder stringBuilder = new StringBuilder();
-        Arrays.stream(abacus).forEach(line -> {
-            stringBuilder.append(line.indexOf("---"));
-        });
-        return stringBuilder.toString();
-    }
-
-    public static String formatNumber(String number){
-        Locale locale = new Locale.Builder().setLanguage("es").
-            setRegion("ES").build();
-        NumberFormat formatter = NumberFormat.getInstance(locale);
-        return formatter.format(Long.valueOf(number.toString()));
-    }
-
-    public static void print(String text) {
-        System.out.println(text);
+        Printer.print("Este es el ábaco: ");
+        Arrays.stream(abacus).forEach(line ->Printer.print("\t" + line));
+        PassAbacusToNumber passAbacusToNumber = new PassAbacusToNumber();
+        Printer.print("\nResultado: " + passAbacusToNumber.transform(abacus));
     }
 }
+
+    
