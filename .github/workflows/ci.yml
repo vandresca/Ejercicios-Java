@@ -20,4 +20,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Build app
-        run: find src -name "*.java" | xargs javac
+        run: javac $(find ./rootdir/* | grep .java)
