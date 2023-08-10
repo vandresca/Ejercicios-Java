@@ -20,4 +20,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Build app
-        run: javac **/*.java
+        run: find src -name "*.java" | xargs javac
