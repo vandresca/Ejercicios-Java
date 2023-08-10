@@ -20,4 +20,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Build app
-        run: javac assemble
+        run: javac **/*.java
