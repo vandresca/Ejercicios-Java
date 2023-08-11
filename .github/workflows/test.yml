@@ -28,7 +28,7 @@ jobs:
       - name: Build with Maven
         shell: bash
         run: |
-            folders=$(find . -type d -maxdepth 1 ! -name ".github" ! -name ".git" ! -name ".vscode" ! -name ".")
+            folders=$(find . -type d -maxdepth 1 ! -name ".github" ! -name ".git" ! -name ".vscode" ! -name ".");
             for item in "${folders[@]}"; do
               cd $item
               mvn test
