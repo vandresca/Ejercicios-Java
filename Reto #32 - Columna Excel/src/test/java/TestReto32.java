@@ -3,10 +3,10 @@ package Java.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Java.src.FindNumberColumn;
+import com.vandresca.FindNumberColumn;
 
 
-public class TestFindNumberColumn {
+public class TestReto32 {
 
     @Test
     public void testFindNumberOfColumn(){     

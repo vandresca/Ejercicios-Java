@@ -1,4 +1,4 @@
-package Java.src;
+package com.vandresca;
 
 public class Printer {
     public static void print(Object object){
