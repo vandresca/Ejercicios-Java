@@ -30,7 +30,7 @@ jobs:
         run: |
             folders=$(find . -type d -maxdepth 1 ! -name ".github" ! -name ".git" ! -name ".vscode" ! -name ".");
             for item in "${folders[@]}"; do
-              cd $item
+              cd "$item"
               mvn test
             done
 
