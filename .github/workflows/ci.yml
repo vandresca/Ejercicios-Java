@@ -16,9 +16,18 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
 
-      - name: Setup Gradle
-        uses: maven/maven-build-action@v2
-      - name: Build app
-        run: ./mvn compile
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
+      - name: Build with Maven
+        shell: bash
+        run: |
+          if [ $(grep -E '^(8|11)\.' <<< '${{ matrix.java }}') ]; then
+            # some module doesn't compile on java platform lower than 17, need to skip them by specifying a profile
+            MODS_OVERRIDES='-pl !spring-aot'
+          fi
+          mvn -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn $MODS_OVERRIDES clean test
+
