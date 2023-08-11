@@ -1,4 +1,4 @@
-package src;
+package com.vandresca;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -10,7 +10,7 @@ public class PasswordGenerator {
     private static final String NUMBERS = "0123456789";
     private static final String SYMBOLS = "!@#$%^&*()_+-=[]|,./?><";
 
-    public class Params{
+    public static class Params{
         public static Boolean hasLength16;
         public static Boolean hasUpperCase;
         public static Boolean hasNumbers;
@@ -31,9 +31,10 @@ public class PasswordGenerator {
         Params.hasNumbers = ScannerRequest.requestBoolean();
         Printer.print("¿Quieres que la contraseña contenga también símbolos? [Escribe 'true' o 'false']");
         Params.hasSymbols = ScannerRequest.requestBoolean();
+        ScannerRequest.close();
     }
 
-    private String generatePassword() {
+    public String generatePassword() {
         String sourceChars = getSourceChars();
         int length = (Params.hasLength16)? 16 : 8;
         String password = "";

@@ -1,4 +1,4 @@
-package src;
+package com.vandresca;
 /**
  * Programa que genere una contraseña en la que se pueda:
  * - Elegir si tiene 8 o 16 carácteres
@@ -6,7 +6,7 @@ package src;
  * - Elegir si se quiere que tenga números
  * - Elegir si se quiere que tenga simbolos
  */
-public class Reto3 {
+public class Main {
 
     public static void main(String[] args) {
         PasswordGenerator passwordGenerator = new PasswordGenerator();
