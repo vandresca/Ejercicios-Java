@@ -1,11 +1,11 @@
-
 import org.junit.Assert;
 import org.junit.Test;
+import com.vandresca.PassAbacusToNumber;
 
 
-public class TestPassAbacusToNumber {
+public class TestReto31 {
     
-    PassAbacusToNumber passAbacusToNumber;
+   PassAbacusToNumber passAbacusToNumber;
 
    @Test
    public void testTransformAbacusToNumber(){

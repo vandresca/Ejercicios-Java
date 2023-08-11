@@ -1,3 +1,4 @@
+package com.vandresca;
 
 import java.util.Arrays;
 
@@ -21,7 +22,7 @@ import java.util.Arrays;
  *  
  *  Resultado: 1.302.790
  */
-public class Reto31 {
+public class Main {
 
     static String[] abacus = {
             "O---OOOOOOOO",
