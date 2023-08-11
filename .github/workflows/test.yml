@@ -29,7 +29,7 @@ jobs:
         shell: bash
         run: |
           for folder in $(find . -type d -maxdepth 1 ! -name ".github" ! -name ".git" ! -name ".github" ! -name ".vscode" ! -name "."); do
-            cd $folder
+            cd "$folder"
             mvn test
           done
 
