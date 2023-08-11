@@ -1,5 +1,6 @@
-package Java.src;
-public class Reto32{
+package com.vandresca;
+
+public class Main{
 
     /*
     * Crea una función que calcule el número de la columna de una hoja de Excel
