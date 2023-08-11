@@ -26,10 +26,11 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
       - name: Build with Maven
+        shell: bash
         run: |
-          shell: |
-            for folder in $(find . -type d -maxdepth 1 ! -name ".github" ! -name ".git" ! -name ".vscode" ! -name "."); do
-              cd $(basename "$folder")
+            folders=$(find . -type d -maxdepth 1 ! -name ".github" ! -name ".git" ! -name ".vscode" ! -name ".")
+            for item in "${folders[@]}"; do
+              cd $item
               mvn test
             done
 
