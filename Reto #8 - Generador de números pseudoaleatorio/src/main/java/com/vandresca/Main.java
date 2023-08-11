@@ -1,4 +1,4 @@
-package src;
+package com.vandresca;
 
 
 /*
@@ -9,7 +9,7 @@ package src;
  * Es más complicado de lo que parece...
  */
 
-public class Reto8{
+public class Main{
     public static void main(String[] args) {
         for(int i=1; i<= 100; i++){
             Printer.print(String.valueOf(PseudoAleatoryNumber.randomInt()));

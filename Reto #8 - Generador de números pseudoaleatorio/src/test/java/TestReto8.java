@@ -1,11 +1,8 @@
-package test;
-
 import org.junit.Assert;
 import org.junit.Test;
+import com.vandresca.PseudoAleatoryNumber;
 
-import src.PseudoAleatoryNumber;
-
-public class TestPseudoAleatoryNumber {
+public class TestReto8 {
 
     @Test
     public void checkNumberIsInRange(){
@@ -13,3 +10,4 @@ public class TestPseudoAleatoryNumber {
         Assert.assertTrue(numberInStringFormat.matches("^([0-9]|[1-9][0-9]|100)$"));
     }
 }
+ 

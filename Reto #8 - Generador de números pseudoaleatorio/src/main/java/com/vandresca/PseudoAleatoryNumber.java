@@ -1,4 +1,4 @@
-package src;
+package com.vandresca;
 
 public class PseudoAleatoryNumber {
     public static int randomInt(){
