@@ -28,9 +28,5 @@ jobs:
       - name: Build with Maven
         shell: bash
         run: |
-          if [ $(grep -E '^(8|11)\.' <<< '${{ matrix.java }}') ]; then
-            # some module doesn't compile on java platform lower than 17, need to skip them by specifying a profile
-            MODS_OVERRIDES='-pl !spring-aot'
-          fi
           ./mvn -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn $MODS_OVERRIDES clean test
 
