@@ -27,8 +27,7 @@ jobs:
           key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
       - name: Build with Maven
         shell: bash
-        run: 
+        run: |
           cd Reto\ \#0\ -\ Fizzbuzz/
-        run:
           mvn compile
 
