@@ -3,7 +3,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestPrimeFibanacciEven {
+import com.vandresca.PrimeFibonacciEven;
+
+public class TestReto4 {
     PrimeFibonacciEven primeFibonacciEven;
 
 

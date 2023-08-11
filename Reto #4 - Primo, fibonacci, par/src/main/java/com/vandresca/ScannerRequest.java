@@ -1,3 +1,5 @@
+package com.vandresca;
+
 import java.util.Scanner;
 
 public class ScannerRequest {
