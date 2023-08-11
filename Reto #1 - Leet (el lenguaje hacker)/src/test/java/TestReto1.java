@@ -1,8 +1,7 @@
-package test;
-
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
-import src.LeetLanguage;
+import org.junit.Test;
+import com.vandresca.LeetLanguage;
+
 
 public class TestReto1 {
     
