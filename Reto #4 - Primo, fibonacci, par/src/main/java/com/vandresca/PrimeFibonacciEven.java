@@ -1,3 +1,6 @@
+package com.vandresca;
+
+
 public class PrimeFibonacciEven {
     
     public String makeMessage(int input){
