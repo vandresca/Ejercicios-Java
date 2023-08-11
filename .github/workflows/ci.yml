@@ -29,5 +29,6 @@ jobs:
         shell: bash
         run: 
           cd Reto\ \#0\ -\ Fizzbuzz/
+        run:
           mvn compile
 
