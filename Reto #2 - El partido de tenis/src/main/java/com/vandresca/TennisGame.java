@@ -1,4 +1,4 @@
-package src;
+package com.vandresca;
 import java.util.Random;
 
 public class TennisGame {
@@ -25,11 +25,11 @@ public class TennisGame {
     }
 
 
-    private Boolean hasEnd(){
+    public Boolean hasEnd(){
         return player1.isWinner() || player2.isWinner();
     }
 
-    private void setWinner(){
+    public void setWinner(){
         if(player1.isMoreThanFORTY() && differenceOfWin(player1, player2)) player1.setWinner();
         if(player2.isMoreThanFORTY() && differenceOfWin(player2, player1)) player2.setWinner();
     }
@@ -47,7 +47,7 @@ public class TennisGame {
         winner.addPoint();
     }
 
-    private String showScoreBoard(){
+    public String showScoreBoard(){
         if(isDeuce()) return "DEUCE";
         else if(isAdvantagePlayer1()) return "ADVANTAGE PLAYER 1";
         else if(isAdvantagePlayer2()) return "ADVANTAGE PLAYER 2";
@@ -56,15 +56,23 @@ public class TennisGame {
         else return player1.getTypePoint() + " - " + player2.getTypePoint();
     }
 
-    private Boolean isDeuce(){
+    public Boolean isDeuce(){
         return player1.getNumberPoints()>= Player.TypePoint.FORTY.ordinal() && player1.getNumberPoints()== player2.getNumberPoints();
     }
 
-    private Boolean isAdvantagePlayer1(){
+    public Boolean isAdvantagePlayer1(){
         return (player1.getNumberPoints()> Player.TypePoint.FORTY.ordinal()) && (player1.getNumberPoints() - player2.getNumberPoints()==1);
     }
 
-    private Boolean isAdvantagePlayer2(){
+    public Boolean isAdvantagePlayer2(){
         return (player2.getNumberPoints()> Player.TypePoint.FORTY.ordinal()) && (player2.getNumberPoints() - player1.getNumberPoints()==1);
+    }
+
+    public Player getPlayer1(){
+        return player1;
+    }
+
+    public Player getPlayer2(){
+        return player2;
     }
 }

@@ -1,4 +1,5 @@
-package src;
+package com.vandresca;
+
 public class Player {
     private int points;
 
