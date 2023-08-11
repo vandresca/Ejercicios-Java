@@ -28,6 +28,8 @@ jobs:
       - name: Build with Maven
         shell: bash
         run: |
-          cd Reto\ \#0\ -\ Fizzbuzz/
-          mvn test
+          for folder in $(find . -type d -maxdepth 1 ! -name ".github" ! -name ".git" ! -name ".github" ! -name ".vscode"); do
+            cd "$folder"
+            mvn test
+          done
 
