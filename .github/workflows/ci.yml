@@ -32,5 +32,5 @@ jobs:
             # some module doesn't compile on java platform lower than 17, need to skip them by specifying a profile
             MODS_OVERRIDES='-pl !spring-aot'
           fi
-          mvn -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn $MODS_OVERRIDES clean test
+          ./mvn -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn $MODS_OVERRIDES clean test
 
