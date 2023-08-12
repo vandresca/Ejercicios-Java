@@ -2,7 +2,12 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.vandresca.Player;
 import com.vandresca.TennisGame;
+import com.vandresca.checkpuntuation.CheckAdvantagePlayer1Puntuation;
+import com.vandresca.checkpuntuation.CheckAdvantagePlayer2Puntuation;
+import com.vandresca.checkpuntuation.CheckDeucePuntuation;
 
 public class TestReto2 {
     
@@ -70,61 +75,73 @@ public class TestReto2 {
 
     @Test
     public void isDeuce(){
-        Assert.assertTrue(!tennisGame.isDeuce()); //LOVE-LOVE
+        CheckDeucePuntuation checkDeuceP = new CheckDeucePuntuation();
+        Player player1 = tennisGame.getPlayer1();
+        Player player2 = tennisGame.getPlayer2();
+
+        Assert.assertTrue(!checkDeuceP.checkPuntuation(player1, player2)); //LOVE-LOVE
         tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isDeuce()); //FIFTEEN-LOVE
+        Assert.assertTrue(!checkDeuceP.checkPuntuation(player1, player2)); //FIFTEEN-LOVE
         tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isDeuce()); //THIRTY-LOVE
+        Assert.assertTrue(!checkDeuceP.checkPuntuation(player1, player2)); //THIRTY-LOVE
         tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isDeuce()); //FORTY-LOVE
+        Assert.assertTrue(!checkDeuceP.checkPuntuation(player1, player2)); //FORTY-LOVE
         tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isDeuce()); //FORTY-FIFTEEN
+        Assert.assertTrue(!checkDeuceP.checkPuntuation(player1, player2)); //FORTY-FIFTEEN
         tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isDeuce()); //FORTY-THIRTY
+        Assert.assertTrue(!checkDeuceP.checkPuntuation(player1, player2)); //FORTY-THIRTY
         tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(tennisGame.isDeuce()); //DEUCE
+        Assert.assertTrue(checkDeuceP.checkPuntuation(player1, player2)); //DEUCE
         tennisGame.getPlayer2().addPoint();
-        Assert.assertTrue(!tennisGame.isDeuce()); //ADVANTAGE PLAYER 2
+        Assert.assertTrue(!checkDeuceP.checkPuntuation(player1, player2)); //ADVANTAGE PLAYER 2
         tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(tennisGame.isDeuce()); //DEUCE
+        Assert.assertTrue(checkDeuceP.checkPuntuation(player1, player2)); //DEUCE
     }
 
     @Test
     public void isAdvantagePlayer1(){
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer1()); //LOVE-LOVE
-        tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer1()); //FIFTEEN-LOVE
-        tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer1()); //THIRTY-LOVE
-        tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer1()); //FORTY-LOVE
-        tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer1()); //FORTY-FIFTEEN
-        tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer1()); //FORTY-THIRTY
-        tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer1()); //DEUCE
-        tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(tennisGame.isAdvantagePlayer1());  //ADVANTAGE PLAYER 1
+        CheckAdvantagePlayer1Puntuation checkAPlayer1P = new CheckAdvantagePlayer1Puntuation();
+        Player player1 = tennisGame.getPlayer1();
+        Player player2 = tennisGame.getPlayer2();
+
+        Assert.assertTrue(!checkAPlayer1P.checkPuntuation(player1,player2)); //LOVE-LOVE
+        player1.addPoint(); 
+        Assert.assertTrue(!checkAPlayer1P.checkPuntuation(player1,player2)); //FIFTEEN-LOVE
+        player1.addPoint(); 
+        Assert.assertTrue(!checkAPlayer1P.checkPuntuation(player1,player2)); //THIRTY-LOVE
+        player1.addPoint(); 
+        Assert.assertTrue(!checkAPlayer1P.checkPuntuation(player1,player2)); //FORTY-LOVE
+        player2.addPoint(); 
+        Assert.assertTrue(!checkAPlayer1P.checkPuntuation(player1,player2)); //FORTY-FIFTEEN
+        player2.addPoint(); 
+        Assert.assertTrue(!checkAPlayer1P.checkPuntuation(player1,player2)); //FORTY-THIRTY
+        player2.addPoint(); 
+        Assert.assertTrue(!checkAPlayer1P.checkPuntuation(player1,player2)); //DEUCE
+        player1.addPoint(); 
+        Assert.assertTrue(checkAPlayer1P.checkPuntuation(player1,player2));  //ADVANTAGE PLAYER 1
     }
 
     @Test
     public void isAdvantagePlayer2(){
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer2()); //LOVE-LOVE
-        tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer2()); //FIFTEEN-LOVE
-        tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer2()); //THIRTY-LOVE
-        tennisGame.getPlayer1().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer2()); //FORTY-LOVE
-        tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer2()); //FORTY-FIFTEEN
-        tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer2()); //FORTY-THIRTY
-        tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(!tennisGame.isAdvantagePlayer2()); //DEUCE
-        tennisGame.getPlayer2().addPoint(); 
-        Assert.assertTrue(tennisGame.isAdvantagePlayer2());  //ADVANTAGE PLAYER 2
+        CheckAdvantagePlayer2Puntuation checkAPlayer2P = new CheckAdvantagePlayer2Puntuation();
+        Player player1 = tennisGame.getPlayer1();
+        Player player2 = tennisGame.getPlayer2();
+        
+        Assert.assertTrue(!checkAPlayer2P.checkPuntuation(player1,player2)); //LOVE-LOVE
+        player1.addPoint(); 
+        Assert.assertTrue(!checkAPlayer2P.checkPuntuation(player1,player2)); //FIFTEEN-LOVE
+        player1.addPoint(); 
+        Assert.assertTrue(!checkAPlayer2P.checkPuntuation(player1,player2)); //THIRTY-LOVE
+        player1.addPoint(); 
+        Assert.assertTrue(!checkAPlayer2P.checkPuntuation(player1,player2)); //FORTY-LOVE
+        player2.addPoint(); 
+        Assert.assertTrue(!checkAPlayer2P.checkPuntuation(player1,player2)); //FORTY-FIFTEEN
+        player2.addPoint(); 
+        Assert.assertTrue(!checkAPlayer2P.checkPuntuation(player1,player2)); //FORTY-THIRTY
+        player2.addPoint(); 
+        Assert.assertTrue(!checkAPlayer2P.checkPuntuation(player1,player2)); //DEUCE
+        player2.addPoint(); 
+        Assert.assertTrue(checkAPlayer2P.checkPuntuation(player1,player2));  //ADVANTAGE PLAYER 2
 
     }
 }

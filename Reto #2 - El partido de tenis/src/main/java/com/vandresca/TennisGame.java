@@ -1,11 +1,26 @@
 package com.vandresca;
 import java.util.Random;
 
+import com.vandresca.checkpuntuation.CheckAdvantagePlayer1Puntuation;
+import com.vandresca.checkpuntuation.CheckAdvantagePlayer2Puntuation;
+import com.vandresca.checkpuntuation.CheckDeucePuntuation;
+import com.vandresca.checkpuntuation.CheckPlayer1Winner;
+import com.vandresca.checkpuntuation.CheckPlayer2Winner;
+import com.vandresca.checkpuntuation.ICheckPuntuation;
+
 public class TennisGame {
     
     private Player player1;
 
     private Player player2;
+
+    private ICheckPuntuation[] iCheckPuntuations = {
+        new CheckAdvantagePlayer1Puntuation(),
+        new CheckAdvantagePlayer2Puntuation(),
+        new CheckDeucePuntuation(),
+        new CheckPlayer1Winner(),
+        new CheckPlayer2Winner()
+    };
     
     public TennisGame(){
         init();
@@ -48,24 +63,12 @@ public class TennisGame {
     }
 
     public String showScoreBoard(){
-        if(isDeuce()) return "DEUCE";
-        else if(isAdvantagePlayer1()) return "ADVANTAGE PLAYER 1";
-        else if(isAdvantagePlayer2()) return "ADVANTAGE PLAYER 2";
-        else if(player1.isWinner()) return "WIN PLAYER 1";
-        else if(player2.isWinner()) return "WIN PLAYER 2";
-        else return player1.getTypePoint() + " - " + player2.getTypePoint();
-    }
-
-    public Boolean isDeuce(){
-        return player1.getNumberPoints()>= Player.TypePoint.FORTY.ordinal() && player1.getNumberPoints()== player2.getNumberPoints();
-    }
-
-    public Boolean isAdvantagePlayer1(){
-        return (player1.getNumberPoints()> Player.TypePoint.FORTY.ordinal()) && (player1.getNumberPoints() - player2.getNumberPoints()==1);
-    }
-
-    public Boolean isAdvantagePlayer2(){
-        return (player2.getNumberPoints()> Player.TypePoint.FORTY.ordinal()) && (player2.getNumberPoints() - player1.getNumberPoints()==1);
+        for(ICheckPuntuation iCheckPuntuation: iCheckPuntuations ){
+            if(iCheckPuntuation.checkPuntuation(player1, player2)){
+                return iCheckPuntuation.getValue();
+            }
+        }
+        return player1.getTypePoint() + " - " + player2.getTypePoint();
     }
 
     public Player getPlayer1(){
